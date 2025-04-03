@@ -1,0 +1,52 @@
+{
+  "name": "notion-vocab-quiz",
+  "version": "1.0.0",
+  "description": "A CLI tool to create vocabulary quizzes from Notion database",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "notion-vocab-quiz": "./dist/index.js",
+    "nvq": "./dist/index.js",
+    "vq": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "test": "jest"
+  },
+  "keywords": [
+    "notion",
+    "vocabulary",
+    "quiz",
+    "cli",
+    "learning",
+    "education"
+  ],
+  "author": "Joker Nguyen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonnpt1301/notion-vocab-quiz.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sonnpt1301/notion-vocab-quiz/issues"
+  },
+  "homepage": "https://github.com/sonnpt1301/notion-vocab-quiz#readme",
+  "dependencies": {
+    "@notionhq/client": "^2.2.14",
+    "chalk": "^4.1.2",
+    "dayjs": "^1.11.10",
+    "inquirer": "^8.2.6",
+    "openai": "^4.91.1"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^8.2.6",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20.11.19",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.3.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
