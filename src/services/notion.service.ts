@@ -79,14 +79,14 @@ function getDateRange(timeRange: string | number): string | null {
 export async function getWordsFromNotion(timeRange: string | number): Promise<Word[]> {
   const config = getConfig();
   if (!config) {
-    display.error('Configuration not found. Please run "nvq setup" to set up your Notion connection.');
+    display.error('Configuration not found. Please run "nvq setup" or "vq setup" to set up your Notion connection.');
     process.exit(1);
   }
 
   // Validate database ID
   const databaseId = config.NOTION_DATABASE_ID;
   if (!databaseId) {
-    display.error('Database ID is missing. Please run "nvq setup" to configure your Notion database.');
+    display.error('Database ID is missing. Please run "nvq setup" or "vq setup" to configure your Notion database.');
     process.exit(1);
   }
 
@@ -97,18 +97,18 @@ export async function getWordsFromNotion(timeRange: string | number): Promise<Wo
     try {
       await notion.databases.retrieve({ database_id: databaseId });
     } catch (dbError: any) {
-      if (dbError.code === 'object_not_found') {
-        display.warning(`Unable to access your Notion database. Here are some things to check:
+      const errorMessage = `Unable to access your Notion database. Here are some things to check:
 
 1. 🔍 Verify that the database ID "${databaseId}" is correct
 2. 🔗 Make sure you've shared the database with your Notion integration
 3. 🔐 Check that your integration has the necessary permissions
 
-Need help? Run "nvq setup" to reconfigure your connection.`);
-        process.exit(1);
+Need help? Run "nvq setup" to reconfigure your connection.`;
+      if (dbError.code === 'object_not_found') {
+        display.warning(errorMessage);
+      } else {
+        display.warning(errorMessage);
       }
-      // For other errors, display a generic error message and exit
-      display.error('An unexpected error occurred while accessing the database. Please try again later.');
       process.exit(1);
     }
 
