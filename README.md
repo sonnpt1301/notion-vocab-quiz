@@ -26,8 +26,8 @@ You can use any of these commands:
 
 ```bash
 notion-vocab-quiz  # Full command
-nvq             # Short alias
-vq                # Shortest alias
+nvq                # Short alias
+vq                 # Shortest alias
 ```
 
 ## Setup
