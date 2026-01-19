@@ -8,7 +8,7 @@ interface Config {
   NOTION_DATABASE_ID: string;
 }
 
-const CONFIG_FILE = path.join(process.env.HOME || process.env.USERPROFILE || '', '.notion-quiz', 'config.json');
+const CONFIG_FILE = path.join(process.env.HOME || process.env.USERPROFILE || '', '.notion-vocab-quiz', 'config.json');
 
 export function getConfig(): Config | null {
   try {

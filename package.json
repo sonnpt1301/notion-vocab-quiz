@@ -1,6 +1,6 @@
 {
   "name": "notion-vocab-quiz",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A CLI tool to create vocabulary quizzes from Notion database",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
